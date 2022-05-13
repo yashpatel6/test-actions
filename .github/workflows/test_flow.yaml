@@ -33,7 +33,7 @@ jobs:
         uses: docker/metadata-action@v3
         with:
           flavor: |
-            latest: false
+            latest=false
           images: ${{ env.REGISTRY }}/${{ steps.yaml-data.outputs.data }}
           tags: |
             type=raw,value=dev,event=branch
