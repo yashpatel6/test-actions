@@ -16,7 +16,7 @@ jobs:
 
       - name: Run read-yaml action
         id: yaml-data
-        uses: KJ002/read-yaml@main      # You may wish to replace main with a version tag such as '1.6' etc.
+        uses: KJ002/read-yaml@1.6      # You may wish to replace main with a version tag such as '1.6' etc.
         with:
           file: './metadata.yaml'          # File to read from
           key-path: '["Image_Name"]'
