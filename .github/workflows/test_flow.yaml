@@ -40,4 +40,6 @@ jobs:
             type=ref,event=pr
             type=semver,pattern={{version}}
       - name: print tags
-        run: echo "${{ steps.meta.outputs.tags }} ${{ github.event.action }}"
+        run: |
+          echo "${{ steps.meta.outputs.tags }}"
+          echo "${{ github.event }}"
