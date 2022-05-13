@@ -1,15 +1,22 @@
 ---
-name: test-workflow
+name: Publish Docker image
 
-on: push
+on:
+  push:
+    branches: ['main']
+    tags: ['v*']
+  pull_request:
+    branches: ['*']
+  release:
+    types: [published]
 env:
+  REGISTRY: ghcr.io/uclahs-cds
   ENV_FILE: metadata.yaml
 jobs:
   load-variables:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -22,3 +29,14 @@ jobs:
           key-path: '["Image_Name"]'
       - name: Display read-yaml output
         run: echo "${{ steps.yaml-data.outputs.data }}"
+      - name: Create tag info using Docker meta
+        id: meta
+        uses: docker/metadata-action@v3
+        with:
+          images: ${{ env.REGISTRY }}/${{ steps.yaml-data.outputs.data }}
+          tags: |
+            type=raw,value=branch-dev,event=branch
+            type=ref,event=pr
+            type=semver,pattern={{version}}
+      - name: print tags
+        run: echo "${{ steps.meta.outputs.tags }}"
