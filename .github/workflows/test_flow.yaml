@@ -36,7 +36,7 @@ jobs:
             latest=false
           images: ${{ env.REGISTRY }}/${{ steps.yaml-data.outputs.data }}
           tags: |
-            type=raw,enabled=${{github.event_name == 'push'}},value=dev,event=branch
+            type=raw,enable=${{github.event_name == 'push'}},value=dev,event=branch
             type=ref,event=pr
             type=semver,pattern={{version}}
       - name: print tags
