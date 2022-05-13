@@ -22,7 +22,3 @@ jobs:
           key-path: '["Image_Name"]'
       - name: Display read-yaml output
         run: echo "${{ steps.yaml-data.outputs.data }}"
-      - name: trycat
-        run: cat ${{ env.ENV_FILE }} >> $GITHUB_ENV
-      - name: printer
-        run: echo "${{ env }}"
