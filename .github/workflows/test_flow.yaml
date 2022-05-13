@@ -42,4 +42,4 @@ jobs:
       - name: print tags
         run: |
           echo "${{ steps.meta.outputs.tags }}"
-          echo "${{ github.event.trigger }}"
+          echo "${{ github.event_name }}"
