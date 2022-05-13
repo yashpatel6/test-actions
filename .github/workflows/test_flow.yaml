@@ -2,7 +2,8 @@
 name: test-workflow
 
 on: push
-ENV_FILE: metadata.yaml
+env:
+  ENV_FILE: metadata.yaml
 jobs:
   load-variables:
     runs-on: ubuntu-latest
