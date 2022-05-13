@@ -33,9 +33,10 @@ jobs:
         id: meta
         uses: docker/metadata-action@v3
         with:
+          latest: false
           images: ${{ env.REGISTRY }}/${{ steps.yaml-data.outputs.data }}
           tags: |
-            type=raw,value=branch-dev,event=branch
+            type=raw,value=dev,event=branch
             type=ref,event=pr
             type=semver,pattern={{version}}
       - name: print tags
