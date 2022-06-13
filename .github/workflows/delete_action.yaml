@@ -1,0 +1,38 @@
+---
+name: Images to delete
+on:
+  pull_request:
+    types: [ closed ]
+env:
+  REGISTRY: ghcr.io/uclahs-cds
+  ENV_FILE: metadata.yaml
+jobs:
+  load-variables:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Run read-yaml action
+        id: yaml-data
+        uses: KJ002/read-yaml@1.6      # You may wish to replace main with a version tag such as '1.6' etc.
+        with:
+          file: './metadata.yaml'          # File to read from
+          key-path: '["Image_Name"]'
+      - name: Display read-yaml output
+        run: echo "${{ steps.yaml-data.outputs.data }}"
+      - name: Create tag info using Docker meta
+        id: meta
+        uses: docker/metadata-action@v3
+        with:
+          flavor: |
+            latest=false
+          images: ${{ env.REGISTRY }}/${{ steps.yaml-data.outputs.data }}
+          tags: |
+            type=ref,event=pr
+      - name: print tags
+        run: |
+          echo "${{ steps.meta.outputs.tags }}"
+          echo "${{ github.event_name }}"
