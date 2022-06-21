@@ -5,7 +5,6 @@ on:
   push:
     branches: ['main']
     tags: ['v*']
-  pull_request:
   release:
     types: [published]
 env:
@@ -37,7 +36,6 @@ jobs:
           images: ${{ env.REGISTRY }}/${{ steps.yaml-data.outputs.data }}
           tags: |
             type=raw,enable=${{github.event_name == 'push'}},value=dev,event=branch
-            type=ref,event=pr
             type=semver,pattern={{version}}
       - name: print tags
         run: |
