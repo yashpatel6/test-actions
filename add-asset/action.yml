@@ -4,7 +4,7 @@ inputs:
   repository-to-tar: # Repository to checkout and tar
     description: 'Repository to tar'
     required: true
-   tag-to-checkout:
+  tag-to-checkout:
     description: 'Tag in repo to checkout and tar'
     required: true
 runs:
