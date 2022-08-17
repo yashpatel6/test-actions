@@ -1,1 +1,5 @@
-
+name: 'Asset with submodules'
+description: 'Add tarbell with full submodules to release'
+inputs:
+  repository-to-tar: # Repository to checkout and tar
+  required
