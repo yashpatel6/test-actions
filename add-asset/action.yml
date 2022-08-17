@@ -2,4 +2,21 @@ name: 'Asset with submodules'
 description: 'Add tarbell with full submodules to release'
 inputs:
   repository-to-tar: # Repository to checkout and tar
-  required
+    description: 'Repository to tar'
+    required: true
+   tag-to-checkout:
+    description: 'Tag in repo to checkout and tar'
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - name: checkout repo
+      uses: actions/checkout@v3
+      with:
+        repository: ${inputs.repository-to-tar}
+        ref: ${inputs.tag-to-checkout}
+        submodules: recursive
+    - name: show workspace
+      run: |
+        ls $GITHUB_WORKSPACE
+ 
