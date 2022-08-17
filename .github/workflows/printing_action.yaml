@@ -14,4 +14,4 @@ jobs:
     steps:
       - name: print data
         run: |
-          echo "${{ github }}"
+          echo "${{ GITHUB_REF }}"
