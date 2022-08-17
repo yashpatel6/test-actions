@@ -13,5 +13,5 @@ jobs:
       contents: read
     steps:
       - name: print data
-      run: |
-        echo "${{ github }}"
+        run: |
+          echo "${{ github }}"
