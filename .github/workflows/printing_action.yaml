@@ -13,4 +13,6 @@ jobs:
       contents: read
     steps:
       - name: print data
-        run: echo "${GITHUB_REF}"
+        run: |
+          echo "${GITHUB_REF}"
+          echo "${GITHUB_REPOSITORY}"
