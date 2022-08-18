@@ -19,5 +19,5 @@ jobs:
       - name: trying subaction
         uses: yashpatel6/test-actions/add-asset@v2.0.10
         with: 
-          repository-to-tar: "${{GITHUB_REPOSITORY}}"
-          tag-to-checkout: "${{GITHUB_REF}}"
+          repository-to-tar: "${GITHUB_REPOSITORY}"
+          tag-to-checkout: "${GITHUB_REF}"
