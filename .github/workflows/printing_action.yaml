@@ -17,7 +17,7 @@ jobs:
           echo "${GITHUB_REF}"
           echo "${GITHUB_REPOSITORY}"
       - name: trying subaction
-        uses: yashpatel6/test-actions/add-asset@v2.0.7
+        uses: yashpatel6/test-actions/add-asset@v2.0.8
         with: 
           repository-to-tar: ${GITHUB_REPOSITORY}
           tag-to-checkout: ${GITHUB_REF}
