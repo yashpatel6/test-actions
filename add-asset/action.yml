@@ -17,6 +17,7 @@ runs:
         ref: ${inputs.tag-to-checkout}
         submodules: recursive
     - name: show workspace
+      shell: bash
       run: |
         ls $GITHUB_WORKSPACE
  
