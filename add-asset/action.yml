@@ -13,7 +13,7 @@ runs:
     - name: checkout repo
       uses: actions/checkout@v3
       with:
-        repository: "${{ inputs.repository-to-tar }"
+        repository: "${{ inputs.repository-to-tar }}"
         ref: "${{ inputs.tag-to-checkout }}"
         submodules: recursive
     - name: show workspace
