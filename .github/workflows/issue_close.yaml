@@ -1,0 +1,16 @@
+---
+name: Test issue
+
+on:
+  issues:
+    types: [closed]
+jobs:
+  show-data:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: print data
+        run: |
+          echo "Issue title: ${{ github.event.issue.title }}"
+          echo "Issue body: ${{ github.event.issue.body }}"
