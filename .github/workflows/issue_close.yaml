@@ -6,6 +6,7 @@ on:
     types: [closed]
 jobs:
   show-data:
+    if: github.event.issue.state_reason == 'completed'
     runs-on: ubuntu-latest
     permissions:
       contents: read
