@@ -15,3 +15,4 @@ jobs:
           echo "Issue title: ${{ github.event.issue.title }}"
           echo "Issue body: ${{ github.event.issue.body }}"
           echo "Issue: ${{ github.event.issue.state }}"
+          echo "Issue: ${{ github.event.issue.state_reason }}"
