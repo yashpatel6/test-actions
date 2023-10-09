@@ -18,8 +18,10 @@ jobs:
           echo "Issue: ${{ github.event.issue.state }}"
           echo "Issue: ${{ github.event.issue.state_reason }}"
       - name: dump description
+        id: dump
         run: |
+          echo "description-path=$(realpah issue_description.md)" >> $GITHUB_OUTPUT
           echo "${{ github.event.issue.body }}" > issue_description.md
       - name: print metadata
         run: |
-          echo issue_description.md
+          echo ${{ ${{ steps.dump.outputs.description-path }}
