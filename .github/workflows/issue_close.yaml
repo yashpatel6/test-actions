@@ -17,3 +17,9 @@ jobs:
           echo "Issue body: ${{ github.event.issue.body }}"
           echo "Issue: ${{ github.event.issue.state }}"
           echo "Issue: ${{ github.event.issue.state_reason }}"
+      - name: dump description
+        run: |
+          echo "${{ github.event.issue.body }}" > issue_description.md
+      - name: print metadata
+        run: |
+          echo issue_description.md
