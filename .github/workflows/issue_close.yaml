@@ -18,6 +18,7 @@ jobs:
           echo "Issue: ${{ github.event.issue.state }}"
           echo "Issue: ${{ github.event.issue.state_reason }}"
           echo "User: ${{ github.event.issue.user.login }}"
+          echo "${{ toJson(github) }}"
       - name: dump description
         id: dump
         run: |
