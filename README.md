@@ -5,4 +5,4 @@ apples go rowr
 
 > **Note**: this is a note
 
-$$mtDNA_CopyNumber = \frac{1}{12}$$
+$$mtDNA CopyNumber = \frac{mtDNA average coverage}{autosomal DNA average coverage} \cdot ploidy$$
